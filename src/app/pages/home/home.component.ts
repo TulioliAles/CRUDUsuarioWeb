@@ -31,4 +31,10 @@ export class HomeComponent implements OnInit{
       return usuario.nomeCompleto.toLowerCase().includes(value);
     })
   }
+
+  deletar(id: number | undefined){
+    this.serviceUsuario.DeletarUsuario(id).subscribe(response => {
+      window.location.reload();
+    })
+  }
 }
