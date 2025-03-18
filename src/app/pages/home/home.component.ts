@@ -23,6 +23,12 @@ export class HomeComponent implements OnInit{
     }) 
   }
 
+  search(event:Event){
+    const target = event.target as HTMLInputElement;
+    const value = target.value.toLowerCase();
 
-
+    this.usuarios = this.usuariosGeral.filter(usuario => {
+      return usuario.nomeCompleto.toLowerCase().includes(value);
+    })
+  }
 }
