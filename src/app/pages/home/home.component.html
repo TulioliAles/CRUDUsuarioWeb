@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <button class="btn btn-success w-100">Cadastrar novo Usuário</button>
+    <button class="btn btn-success w-100" [routerLink]="['/cadastro']" routerLinkActive="router-link-active">Cadastrar novo Usuário</button>
     <div>
         <label class="form-label">Pesquisar:</label>
         <input class="form-control" type="text" placeholder="Qual usuário deseja buscar?" (input)="search($event)"/>
