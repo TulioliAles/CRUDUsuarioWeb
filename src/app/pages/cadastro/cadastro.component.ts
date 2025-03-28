@@ -1,5 +1,8 @@
+import { UsuarioService } from './../../services/usuario.service';
 import { Component } from '@angular/core';
 import { FormularioComponent } from "../../componentes/formulario/formulario.component";
+import { UsuarioListar } from '../../models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,4 +12,11 @@ import { FormularioComponent } from "../../componentes/formulario/formulario.com
 })
 export class CadastroComponent {
 
+  constructor(private usuarioService : UsuarioService, private router : Router) { }
+
+  criarUsuario(usuario : UsuarioListar){
+    this.usuarioService.CriarUsuario(usuario).subscribe(response =>{
+      this.router.navigate(['/']);
+    })
+  }
 }

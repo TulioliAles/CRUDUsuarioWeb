@@ -14,11 +14,15 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  GetUsuarios(): Observable<Response<UsuarioListar[]>>{
+  GetUsuarios() : Observable<Response<UsuarioListar[]>>{
     return this.http.get<Response<UsuarioListar[]>>(this.ApiUrl);
   }
 
-  DeletarUsuario(id: number | undefined):Observable<Response<UsuarioListar[]>>{
+  DeletarUsuario(id: number | undefined) : Observable<Response<UsuarioListar[]>>{
     return this.http.delete<Response<UsuarioListar[]>>(`${this.ApiUrl}?usuarioId=${id}`);
+  }
+
+  CriarUsuario(usuario : UsuarioListar) : Observable<Response<UsuarioListar[]>>{
+    return this.http.post<Response<UsuarioListar[]>>(this.ApiUrl, usuario);
   }
 }
