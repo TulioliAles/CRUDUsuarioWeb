@@ -12,6 +12,8 @@ import { RouterModule } from '@angular/router';
 })
 export class FormularioComponent implements OnInit{
   
+  @Input() btnAcao! : string;
+  @Input() descTitulo! : string;
   @Input() dadosUsuario : UsuarioListar | null = null;
   @Output() onsubmit = new EventEmitter<UsuarioListar>();
 

@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class EditarComponent implements OnInit{
 
+  btnAcao = "Editar";
+  descTitulo = "Editar Usuários"
   usuario!: UsuarioListar;
   constructor(private usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
 
@@ -23,5 +25,11 @@ export class EditarComponent implements OnInit{
     this.usuarioService.GetUsuarioId(id).subscribe(response => {
       this.usuario = response.dados;
     });
+  }
+
+  editarUsuario(usuario : UsuarioListar){
+    this.usuarioService.EditarUsuario(usuario).subscribe(response => {
+      this.router.navigate(["/"]);
+    })
   }
 }
